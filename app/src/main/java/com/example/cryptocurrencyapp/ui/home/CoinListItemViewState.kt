@@ -1,4 +1,4 @@
-package com.example.cryptocurrencyapp.ui.home.homecoin
+package com.example.cryptocurrencyapp.ui.home
 
 import com.example.cryptocurrencyapp.data.model.CoinListResponse
 import java.text.NumberFormat

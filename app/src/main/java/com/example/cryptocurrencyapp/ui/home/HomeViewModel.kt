@@ -1,4 +1,4 @@
-package com.example.cryptocurrencyapp.ui.home.homecoin
+package com.example.cryptocurrencyapp.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData

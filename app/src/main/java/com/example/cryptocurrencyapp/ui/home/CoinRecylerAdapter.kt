@@ -1,4 +1,4 @@
-package com.example.cryptocurrencyapp.ui.home.homecoin.adapter
+package com.example.cryptocurrencyapp.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptocurrencyapp.R
 import com.example.cryptocurrencyapp.data.model.CoinListResponse
 import com.example.cryptocurrencyapp.databinding.RowCoinBinding
-import com.example.cryptocurrencyapp.ui.home.homecoin.CoinListItemViewState
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -59,8 +58,8 @@ class CoinRecylerAdapter : RecyclerView.Adapter<CoinRecylerAdapter.Holder>(), Fi
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charSearch = constraint.toString()
-                if (charSearch.isEmpty()) {
-                    coinsNewList = coins
+                coinsNewList = if (charSearch.isEmpty()) {
+                    coins
                 } else {
                     val resultList: MutableList<CoinListResponse> = mutableListOf()
                     for (row in coins) {
@@ -72,7 +71,7 @@ class CoinRecylerAdapter : RecyclerView.Adapter<CoinRecylerAdapter.Holder>(), Fi
                             resultList.add(row)
                         }
                     }
-                    coinsNewList = resultList
+                    resultList
                 }
                 val filterResults = FilterResults()
                 filterResults.values = coinsNewList

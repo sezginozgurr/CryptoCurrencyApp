@@ -2,6 +2,6 @@ package com.example.cryptocurrencyapp.ui.home
 
 import androidx.fragment.app.Fragment
 
-class MainFragment : Fragment() {
+class HomeFragment : Fragment() {
 
 }
