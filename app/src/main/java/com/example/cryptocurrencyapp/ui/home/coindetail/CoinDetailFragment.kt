@@ -45,9 +45,6 @@ class CoinDetailFragment : BaseFragment<FragmentCoinDetailBinding>() {
                 state.data?.let {
                     binding.coinDetailProgress.visibility = View.GONE
                     binding.coinDateilViewState = CoinDetailItemViewState(it) //setup UI
-
-                    coinImage = it.image?.large.toString()
-                    priceChange = it.market_data?.price_change_percentage_24h.toString()
                 }
             }
             Status.ERROR -> {
