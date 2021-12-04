@@ -28,11 +28,12 @@ class CoinDetailFragment : BaseFragment<FragmentCoinDetailBinding>() {
     }
 
     private fun initialize() {
+        coinID = requireArguments().getString(Constants.COIN_ID).toString()
         setObserver()
     }
 
     private fun setObserver() {
-        viewModel.getCoinDetail().observe(viewLifecycleOwner, getCoinDetailObserver)
+        viewModel.getCoinDetail(coinID).observe(viewLifecycleOwner, getCoinDetailObserver)
     }
 
     private val getCoinDetailObserver = Observer<Resource<CoinDetailResponse>> { state ->

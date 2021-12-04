@@ -15,6 +15,7 @@ import com.example.cryptocurrencyapp.R
 import com.example.cryptocurrencyapp.data.model.CoinListResponse
 import com.example.cryptocurrencyapp.databinding.FragmentHomeBinding
 import com.example.cryptocurrencyapp.ui.base.BaseFragment
+import com.example.cryptocurrencyapp.util.Constants
 import com.example.cryptocurrencyapp.util.Resource
 import com.example.cryptocurrencyapp.util.Status
 import kotlinx.coroutines.delay
@@ -25,7 +26,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private val viewModel by viewModel<HomeViewModel>()
     private lateinit var adapter: CoinRecylerAdapter
-    private var refreshPeriod = ""
+    private var refreshPeriod = Constants.EMPTY_STRING
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,6 +34,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun initialize() {
+        if (arguments != null && requireArguments().containsKey("period")) {
+            refreshPeriod = requireArguments().getString("period").toString()
+        }
         setObservers()
         setClickListener()
         loadRecycler()
@@ -54,7 +58,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         adapter = CoinRecylerAdapter()
         binding.recyclerViewCoins.adapter = adapter
         adapter.onClickItem {
-            val data = bundleOf("coinID" to it.id)
+            val data = bundleOf(Constants.COIN_ID to it.id)
             findNavController().navigate(R.id.coinDetailFragment, data)
         }
     }

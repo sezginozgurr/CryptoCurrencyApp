@@ -4,6 +4,7 @@ import com.example.cryptocurrencyapp.data.model.CoinListResponse
 import java.text.NumberFormat
 
 data class CoinListItemViewState(val coins: CoinListResponse) {
+
     fun getName() = coins.name
 
     fun getImageUrl() = coins.image
