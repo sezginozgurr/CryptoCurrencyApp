@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.cryptocurrencyapp.ui.home.CoinListItemViewState" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="@dimen/margin5"
+        app:cardCornerRadius="@dimen/margin8">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_blue">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_coin"
+                imageUrl="@{data.imageUrl}"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="@dimen/margin16"
+                tools:src="@drawable/icn_app"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin16"
+                android:layout_marginTop="@dimen/margin8"
+                android:text="@{data.name}"
+                android:textColor="@color/color_grey"
+                app:layout_constraintStart_toEndOf="@id/img_coin"
+                app:layout_constraintTop_toTopOf="@id/img_coin"
+                tools:text="Lorem" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin16"
+                android:layout_marginBottom="@dimen/margin8"
+                android:text="@{data.currentPrice}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font22"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/img_coin"
+                app:layout_constraintTop_toBottomOf="@id/txt_name"
+                tools:text="Lorem Description" />
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin16"
+                android:layout_marginBottom="@dimen/margin16"
+                android:background="@drawable/rounded_background_blue"
+                android:backgroundTint="@color/spring_green"
+                tvBackground="@{data.priceChange}"
+                android:gravity="center"
+                android:padding="@dimen/margin6"
+                android:text="@{data.priceChange}"
+                android:textColor="@color/black"
+                android:ellipsize="end"
+                android:maxLines="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="+0.31%" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
