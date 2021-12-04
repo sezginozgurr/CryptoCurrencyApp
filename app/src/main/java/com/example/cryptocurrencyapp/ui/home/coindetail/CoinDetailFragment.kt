@@ -6,30 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.example.cryptocurrencyapp.R
 import com.example.cryptocurrencyapp.data.model.CoinDetailResponse
 import com.example.cryptocurrencyapp.databinding.FragmentCoinDetailBinding
+import com.example.cryptocurrencyapp.ui.base.BaseFragment
+import com.example.cryptocurrencyapp.util.Constants
 import com.example.cryptocurrencyapp.util.Resource
 import com.example.cryptocurrencyapp.util.Status
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CoinDetailFragment : Fragment() {
+class CoinDetailFragment : BaseFragment<FragmentCoinDetailBinding>() {
 
-    private var _binding: FragmentCoinDetailBinding? = null
-    private val binding get() = _binding!!
     private val viewModel by viewModel<CoinDetailViewModel>()
-    private var coinID = ""
-    private var coinImage = ""
-    private var priceChange = ""
-    private var isFavorite = false
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        coinID = requireArguments().getString("coinID").toString()
-        _binding = FragmentCoinDetailBinding.inflate(inflater)
-        return binding.root
-    }
+    private var coinID = Constants.EMPTY_STRING
+    private var coinImage = Constants.EMPTY_STRING
+    private var priceChange = Constants.EMPTY_STRING
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -64,9 +55,6 @@ class CoinDetailFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+    override fun getFragmentView(): Int = R.layout.fragment_coin_detail
 
 }

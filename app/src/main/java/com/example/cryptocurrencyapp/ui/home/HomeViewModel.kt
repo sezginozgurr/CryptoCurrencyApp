@@ -1,12 +1,12 @@
 package com.example.cryptocurrencyapp.ui.home
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.example.cryptocurrencyapp.data.repository.CoinRepository
+import com.example.cryptocurrencyapp.ui.base.BaseViewModel
 import com.example.cryptocurrencyapp.util.Resource
 import kotlinx.coroutines.Dispatchers
 
-class HomeViewModel(private val repository: CoinRepository) : ViewModel() {
+class HomeViewModel(private val repository: CoinRepository) : BaseViewModel() {
 
     fun getCoinList() = liveData(Dispatchers.IO) {
         emit(Resource.loading(null))

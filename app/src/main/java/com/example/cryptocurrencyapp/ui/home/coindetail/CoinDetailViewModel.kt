@@ -2,13 +2,13 @@ package com.example.cryptocurrencyapp.ui.home.coindetail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.example.cryptocurrencyapp.data.repository.CoinRepository
+import com.example.cryptocurrencyapp.ui.base.BaseViewModel
 import com.example.cryptocurrencyapp.util.Resource
 import kotlinx.coroutines.Dispatchers
 
-class CoinDetailViewModel(private val repository: CoinRepository) : ViewModel() {
+class CoinDetailViewModel(private val repository: CoinRepository) : BaseViewModel() {
 
     private var _isFavorite: MutableLiveData<Boolean> = MutableLiveData()
     val isFavorite: LiveData<Boolean> = _isFavorite

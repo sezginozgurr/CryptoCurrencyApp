@@ -14,30 +14,18 @@ import androidx.navigation.fragment.findNavController
 import com.example.cryptocurrencyapp.R
 import com.example.cryptocurrencyapp.data.model.CoinListResponse
 import com.example.cryptocurrencyapp.databinding.FragmentHomeBinding
+import com.example.cryptocurrencyapp.ui.base.BaseFragment
 import com.example.cryptocurrencyapp.util.Resource
 import com.example.cryptocurrencyapp.util.Status
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
     private val viewModel by viewModel<HomeViewModel>()
     private lateinit var adapter: CoinRecylerAdapter
     private var refreshPeriod = ""
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        if (arguments != null && requireArguments().containsKey("period")) {
-            refreshPeriod = requireArguments().getString("period").toString()
-        }
-        _binding = FragmentHomeBinding.inflate(inflater)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -114,9 +102,6 @@ class HomeFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+    override fun getFragmentView(): Int = R.layout.fragment_home
 
 }
