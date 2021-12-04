@@ -1,6 +1,7 @@
 package com.example.cryptocurrencyapp.ui.home.coindetail
 
 import com.example.cryptocurrencyapp.data.model.CoinDetailResponse
+import com.example.cryptocurrencyapp.util.Constants
 import java.text.NumberFormat
 
 class CoinDetailItemViewState(val coin: CoinDetailResponse) {
@@ -20,5 +21,5 @@ class CoinDetailItemViewState(val coin: CoinDetailResponse) {
 
     fun getDescription() = coin.description?.en
 
-    fun getHashingAlgorithm() = coin.hashing_algorithm ?: "Algoritma bulunamadı"
+    fun getHashingAlgorithm() = coin.hashing_algorithm ?: Constants.NONE
 }

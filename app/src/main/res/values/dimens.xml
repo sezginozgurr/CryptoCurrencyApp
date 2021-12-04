@@ -65,6 +65,7 @@
     <dimen name="font34">34sp</dimen>
     <dimen name="font36">36sp</dimen>
     <dimen name="font38">38sp</dimen>
+    <dimen name="font40">40sp</dimen>
     <dimen name="font42">42sp</dimen>
     <dimen name="font48">48sp</dimen>
     <dimen name="font60">60sp</dimen>
