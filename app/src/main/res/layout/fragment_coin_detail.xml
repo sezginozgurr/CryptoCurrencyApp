@@ -130,35 +130,6 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_hashing"
             tools:layout_editor_absoluteX="8dp" />
 
-        <EditText
-            android:id="@+id/edt_refresh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin16"
-            android:layout_marginTop="@dimen/margin20"
-            android:background="@drawable/rounded_edittext_edge"
-            android:drawableStart="@drawable/icn_refresh"
-            android:drawablePadding="@dimen/margin8"
-            android:hint="@string/refresh"
-            android:inputType="number"
-            android:padding="@dimen/margin20"
-            android:textColor="@color/white"
-            android:textColorHint="@color/color_grey"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view2" />
-
-        <Button
-            android:id="@+id/btn_refresh_save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin8"
-            android:background="@drawable/rounded_background_blue"
-            android:text="@string/save"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="@+id/edt_refresh"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/edt_refresh" />
-
         <View
             android:id="@+id/view3"
             android:layout_width="match_parent"
@@ -167,7 +138,7 @@
             android:layout_marginTop="@dimen/margin20"
             android:layout_marginEnd="@dimen/margin8"
             android:background="@color/white"
-            app:layout_constraintTop_toBottomOf="@+id/edt_refresh"
+            app:layout_constraintTop_toBottomOf="@+id/view2"
             tools:layout_editor_absoluteX="8dp" />
 
         <TextView
